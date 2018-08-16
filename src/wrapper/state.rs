@@ -703,7 +703,7 @@ impl State {
 
     /// Maps to `lua_pushlstring`.
     pub fn push_bytes(&mut self, s: &[u8]) {
-        unsafe { ffi::lua_pushlstring(self.L, s.as_ptr() as *const i8, s.len() as size_t) };
+        unsafe { ffi::lua_pushlstring(self.L, s.as_ptr() as *const c_char, s.len() as size_t) };
     }
 
     // omitted: lua_pushvfstring
